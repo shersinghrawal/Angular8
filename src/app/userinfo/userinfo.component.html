@@ -1,0 +1,101 @@
+<p>
+    <a routerLink="/userlist">
+        < Back to UserList </a>
+</p>
+<div class="row">
+    <div class="panel-body" style="width:50%">
+        <div class="row">
+            <div class="col-lg-12">
+                <form #userform="ngForm" novalidate (ngSubmit)="userform.form.valid && onClickSubmit(userform.form)">
+                    <!-- {{userform.value|json}} 
+                    {{userform.submitted}}
+                     {{userforminfo|json}} -->
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" required name="name" [(ngModel)]="userforminfo.name" id="name" tabindex="1" class="form-control" placeholder="Username" value="">
+                        <span class="error-message" *ngIf="userforminfo.name=='' && userform.submitted">UserName is
+                            required</span>
+                        <!-- <span class="error-message" *ngIf="userLogin.userName=='' ">error message</span> -->
+                    </div>
+                    <div class="form-group">
+                        <label>Enrollmentnumber</label>
+                        <input type="text" required name="enrollmentnumber" [(ngModel)]="userforminfo.enrollmentnumber" id="enrollmentnumber" tabindex="1" class="form-control" placeholder="Enrollmentnumber" value="">
+                        <span class="error-message" *ngIf="userforminfo.enrollmentnumber=='' && userform.submitted">Enrollmentnumber is
+                            required</span>
+                        <!-- <span class="error-message" *ngIf="userLogin.userName=='' ">error message</span> -->
+                    </div>
+                    <div class="form-group">
+                        <label>College</label>
+                        <input type="text" required name="college" [(ngModel)]="userforminfo.college" id="college" tabindex="1" class="form-control" placeholder="college" value="">
+                        <span class="error-message" *ngIf="userforminfo.college=='' && userform.submitted">College name
+                            is
+                            required</span>
+
+                    </div>
+                    <div class="form-group">
+                        <label>University</label>
+                        <input type="text" required name="university" [(ngModel)]="userforminfo.university" id="university" tabindex="1" class="form-control" placeholder="University" value="">
+                        <span class="error-message" *ngIf="userforminfo.university=='' && userform.submitted">University
+                            name
+                            is
+                            required</span>
+                        <!-- <span class="error-message" *ngIf="userLogin.userName=='' ">error message</span> -->
+                    </div>
+
+                    <div class="form-group">
+                        <label>Add On Custom Fields</label>
+                        <select (change)="onChange($event.target)" class="form-control">
+                            <!-- <option value="0">--Select--</option> -->
+                            <option [value]="item.value" *ngFor="let item of dynamicDrp">
+                                {{item.Text}}
+                            </option>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group" [style.display]="isEmail=='email' ? 'block' : 'none'">
+                        <label>Email </label>
+                        <input [(ngModel)]="userforminfo.email" name="email" [required]="isEmail=='email' ?true:false" placeholder="Email" type="email" class="form-control" />
+                        <span class="error-message" *ngIf="isEmail=='email' && userforminfo.email=='' && userform.submitted">Email Id is
+                            required</span>
+                    </div>
+                    <div class="form-group" [style.display]="attr1=='text' ? 'block' : 'none'">
+                        <label>Phon No </label>
+                        <input [(ngModel)]="userforminfo.attr1" [required]="attr1=='text' ?true:false" name="attr1" placeholder="Phone No" type="text" class="form-control" />
+                        <span class="error-message" *ngIf="attr1=='text' && userforminfo.attr1=='' && userform.submitted">Phone number is
+                            required</span>
+                    </div>
+                    <div class="form-group" [style.display]="attr2=='numeric' ? 'block' : 'none'">
+                        <label>Age </label>
+                        <input [required]="attr2=='numeric' ?true:false" [(ngModel)]="userforminfo.attr2" name="attr2" placeholder="Age" type="number" class="form-control" />
+                        <span class="error-message" *ngIf="attr2=='numeric' && userforminfo.attr2=='' && userform.submitted">User age is
+                            required</span>
+                    </div>
+                    <div class="form-group" [style.display]="attr3=='checkbox' ? 'block' : 'none'">
+                        <label>IsValid &nbsp;
+                            <input [(ngModel)]="userforminfo.attr3" name="attr3" type="checkbox" />
+                        </label>
+                    </div>
+
+                    <div class="form-group" [style.display]="attr4=='radio' ? 'block' : 'none'">
+                        <label>Gender </label>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" value="M" [required]="attr4=='radio' ?true:false" name="attr4" [(ngModel)]="userforminfo.attr4" class="custom-control-input" id="defaultUnchecked" name="Gender">
+                            <label class="custom-control-label" for="defaultUnchecked">Male</label>
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="radio" [required]="attr4=='radio' ?true:false" name="attr4" class="custom-control-input" [(ngModel)]="userforminfo.attr4" value="F" id="defaultChecked" name="Gender" checked>
+                            <label class="custom-control-label" for="defaultChecked">Female</label>
+                        </div>
+                        <span class="error-message" *ngIf="attr4=='radio' && userforminfo.attr4=='' && userform.submitted">Gender is
+                            required</span>
+                    </div>
+                    <input type="submit" class="btn btn-success" value="submit">
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>

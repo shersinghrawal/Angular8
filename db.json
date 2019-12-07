@@ -1,0 +1,31 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 5,
+      "name": "Krunal",
+      "enrollmentnumber": "110470116021",
+      "college": "VVP Engineering College",
+      "university": "PTU",
+      "email": "sher.singh@sourcefuse.com",
+      "attr1": "",
+      "attr2": "",
+      "attr3": "",
+      "attr4": ""
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

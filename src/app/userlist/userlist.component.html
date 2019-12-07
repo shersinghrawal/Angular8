@@ -1,0 +1,32 @@
+<div class="">
+    <p>
+
+
+        <button (click)="addnewrecord();" class="btn btn-dark">Add New Record</button>
+    </p>
+
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Enrollmentnumber</th>
+                <th scope="col">College</th>
+                <th scope="col">University</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of userdatas;index as i">
+                <td>{{item.id}}</td>
+                <td>{{item.name }}</td>
+                <td>{{item.enrollmentnumber }}</td>
+                <td>{{item.college }}</td>
+                <td>{{item.university }}</td>
+                <td><button class="btn btn-dark" (click)="edit(userdatas,item,i);">Edit</button> </td>
+                <td><button class="btn btn-danger" (click)="del(userdatas,item,i);">Del</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

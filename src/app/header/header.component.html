@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#"><i>Angular8 CRUD</i></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/userlist">User List</a>
+            </li>
+
+        </ul>
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item" *ngIf="isEmptyObject(socialusers);">
+                <a class="nav-link" (click)="navigation('login')">Login</a>
+            </li>
+
+            <li class="nav-item dropdown" *ngIf="!isEmptyObject(socialusers)">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome: {{socialusers.name}}</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" style="cursor:pointer;" (click)="userSignout()">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
